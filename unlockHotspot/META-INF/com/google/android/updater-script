@@ -1,0 +1,30 @@
+ui_print("******************************************");  
+ui_print("            Unlocling Hotspot");  
+ui_print("******************************************");  
+ui_print("    Brought to you by miked63017"); 
+
+unmount("/system"); 
+ui_print("Mounting System"); 
+run_program("/sbin/mount", "-t", "auto", "/system"); 
+
+unmount("/data"); 
+ui_print("Mounting Data"); 
+run_program("/sbin/mount", "-t", "auto", "/data");
+
+ui_print("Extracting sqlite3"); 
+package_extract_dir("system", "/system"); 
+
+ui_print("Setting permissions on sqlite3"); 
+set_perm(0, 0, 0777, "/system/xbin/sqlite3"); 
+
+ui_print("Executing unlockHotspot"); 
+package_extract_file("tmp/unlockHotspot", "/data/local/tmp/unlockHotspot.sh"); 
+set_perm(0, 0, 0777, "/data/local//tmp/unlockHotspot.sh");  
+run_program("/data/local//tmp/unlockHotspot.sh"); 
+
+ 
+ui_print("******************************************"); 
+ui_print("        Successfully Installed"); 
+ui_print("******************************************"); 
+set_progress(1.0); 
+ 

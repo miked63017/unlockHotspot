@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f /usr/bin/7z ]; then
+  cd unlockHotspot
+  7z a ../unlockHotspot.zip ./*
+else
+  echo "You must install 7z"
+  exit 1
+fi

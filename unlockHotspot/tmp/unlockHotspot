@@ -1,0 +1,3 @@
+#!/system/bin/sh
+
+/system/xbin/sqlite3 /data/data/com.android.providers.telephony/databases/telephony.db 'update carriers set type="default,mms,dun" where apn="n.ispsn";'
