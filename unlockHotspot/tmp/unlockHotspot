@@ -1,3 +1,8 @@
 #!/system/bin/sh
 
 /system/xbin/sqlite3 /data/data/com.android.providers.telephony/databases/telephony.db 'update carriers set type="default,mms,dun" where apn="n.ispsn";'
+
+#Attempt to unlock USB and BT tether
+/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="1" where name="bluetooth_tethering_enabled";'
+
+/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="1" where name="usb_tethering_enabled";'
