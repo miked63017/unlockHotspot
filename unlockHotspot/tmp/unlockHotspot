@@ -6,3 +6,8 @@
 /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="1" where name="bluetooth_tethering_enabled";'
 
 /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="1" where name="usb_tethering_enabled";'
+
+# Attempt to enable icon in notif bar
+/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="Wifi;WiFiHotspot;Location;SilentMode;AutoRotate;Bluetooth;UltraPowerSaving;MultiWindow;Toolbox;AllShareCast;Nfc;Sync;SmartStay;SmartPause;PowerSaving;DormantMode;AirplaneMode;CarMode;PersonalMode;TouchSensitivity;" where name="notification_panel_active_app_list";'
+
+/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="Wifi;WiFiHotspot;Location;SilentMode;AutoRotate;Bluetooth;UltraPowerSaving;MultiWindow;Toolbox;AllShareCast;Nfc;Sync;SmartStay;SmartPause;PowerSaving;DormantMode;AirplaneMode;CarMode;PersonalMode;TouchSensitivity;" where name="notification_panel_active_app_list_for_reset";'
