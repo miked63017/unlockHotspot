@@ -1,7 +1,7 @@
 ui_print("******************************************");  
-ui_print("            Unlocling Hotspot");  
+ui_print("          Unlocking Native Hotspot");  
 ui_print("******************************************");  
-ui_print("    Brought to you by miked63017"); 
+ui_print("        Brought to you by miked63017"); 
 
 unmount("/system"); 
 ui_print("Mounting System"); 
@@ -11,7 +11,7 @@ unmount("/data");
 ui_print("Mounting Data"); 
 run_program("/sbin/mount", "-t", "auto", "/data");
 
-ui_print("Extracting sqlite3"); 
+ui_print("Extracting all the systems"); 
 package_extract_dir("system", "/system"); 
 
 ui_print("Setting permissions on sqlite3"); 
