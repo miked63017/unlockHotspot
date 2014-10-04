@@ -1,10 +1,16 @@
 #!/system/bin/sh
 
-# Rollback change from previous hotspot mod
-/system/xbin/sqlite3 /data/data/com.android.providers.telephony/databases/telephony.db 'update carriers set type="default,mms" where apn="n.ispsn";'
-
 #Attempt to unlock USB and BT tether
 /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="1" where name="bluetooth_tethering_enabled";'
 
 /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="1" where name="usb_tethering_enabled";'
+
+# Attempt to enable icon in notif bar
+origone = `/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'select value from system where name="notification_panel_active_app_list";'`
+
+origtwo = `/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'select value from system where name="notification_panel_active_app_list";'`
+
+echo $origone | grep "WiFiHotspot" || /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="WiFiHotspot;`echo $origone`" where name="notification_panel_active_app_list";'
+
+echo $origtwo | grep "WiFiHotspot" || /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="WiFiHotspot;`echo $origone`" where name="notification_panel_active_app_list_for_reset";'
 
