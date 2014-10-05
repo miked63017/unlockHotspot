@@ -6,11 +6,11 @@
 /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="1" where name="usb_tethering_enabled";'
 
 # Attempt to enable icon in notif bar
-export origone=`/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'select value from system where name="notification_panel_active_app_list";'`
+#export origone=`/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'select value from system where name="notification_panel_active_app_list";'`
 
-export origtwo=`/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'select value from system where name="notification_panel_active_app_list";'`
+#export origtwo=`/system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'select value from system where name="notification_panel_active_app_list";'`
 
-echo $origone | grep "WiFiHotspot" || /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="WiFiHotspot;`echo $origone`" where name="notification_panel_active_app_list";'
+#echo $origone | grep "WiFiHotspot" || /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="WiFiHotspot;`echo $origone`" where name="notification_panel_active_app_list";'
 
-echo $origtwo | grep "WiFiHotspot" || /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="WiFiHotspot;`echo $origone`" where name="notification_panel_active_app_list_for_reset";'
+#echo $origtwo | grep "WiFiHotspot" || /system/xbin/sqlite3 /data/data/com.android.providers.settings/databases/settings.db 'update system set value="WiFiHotspot;`echo $origone`" where name="notification_panel_active_app_list_for_reset";'
 
